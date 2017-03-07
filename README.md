@@ -1,2 +1,2 @@
-# C--programming-tasks
+# C#-programming-tasks
 Ekoodi programming tasks
