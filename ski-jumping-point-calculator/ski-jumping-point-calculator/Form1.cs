@@ -54,6 +54,8 @@ namespace ski_jumping_point_calculator
         public void ViewResults()
         {
             lbResults.Items.Clear();
+            resultsList.Sort();
+            resultsList.Reverse();
             foreach (float result in resultsList)
             {
                 lbResults.Items.Add(result);
