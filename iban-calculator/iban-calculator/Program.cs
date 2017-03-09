@@ -17,7 +17,7 @@ namespace iban_calculator
             String countryAdded = "";
             String lettersToNum = "";
             String validNum = "";
-            String fullIban = "";
+            String fullIban = "";            
 
             if (bbanObject.CheckInput(bbanInput) == true)
             {
@@ -33,10 +33,12 @@ namespace iban_calculator
             Console.WriteLine(countryAdded);
             lettersToNum = iban.Letters(countryAdded);
             Console.WriteLine(lettersToNum);
+
             validNum = iban.Validation(lettersToNum);
-            Console.WriteLine("Tarkiste: " + validNum);
+            Console.WriteLine("Validation: " + validNum);
             fullIban = iban.IbanNumber(convertedBban, validNum);
             Console.WriteLine("IBAN: " + fullIban);
+            Console.WriteLine(iban.CheckIbanValidation(fullIban));
             Console.ReadKey();
         }
     }
