@@ -29,26 +29,24 @@ namespace iban_calculator
 
         //Letters to numbers
         public String Letters(String s)
-        {
-            String lettersToNum = "";
+        {            
             for (int i = 0; i < letters.Length; i++)
             {
                 if (s.Contains(letters[i]))
                 {
-                    lettersToNum = s.Replace(letters[i], numbers[i].ToString());
-                    s = lettersToNum;
+                     s = s.Replace(letters[i], numbers[i].ToString());                    
                 }
             }
-            return lettersToNum;
+            return s;
         }
 
         //Calculate validation code
         public String Validation(String s)
         {
             String validationN = "";
-            double divider = 97;
-            double reminder = 0;
-            double number = double.Parse(s);
+            ulong divider = 97;
+            ulong reminder = 0;
+            ulong number = ulong.Parse(s);
             reminder = (number) % divider;
             validationN = (98 - reminder).ToString();
             if (int.Parse(validationN) < 10)
@@ -78,6 +76,34 @@ namespace iban_calculator
                 }
             }
             return ibanN;
+        }
+
+        //Check if Iban is correct or not
+        public string CheckIbanValidation(string ibanNumber)
+        {
+            ulong divider = 97;
+            ulong reminder = 0;
+            for(int i = 0;i<ibanNumber.Length;i++)
+            {
+                ibanNumber = ibanNumber.Replace(" ","");
+            }
+            string fourCharsToEnd = ibanNumber.Substring(0, 4);
+            ibanNumber = ibanNumber.Remove(0, 4);
+            ibanNumber = ibanNumber.Insert(ibanNumber.Count(), fourCharsToEnd);
+            int index = ibanNumber.IndexOf("F");
+            string letterConverted = Letters(ibanNumber.Substring(index, 2));
+            ibanNumber = ibanNumber.Replace("FI", letterConverted);
+            ulong number = ulong.Parse(ibanNumber);
+            reminder = (number) % divider;
+
+            if (reminder == 1)
+            {
+                return "Iban is correct!";
+            }
+            else
+            {
+                return "Iban is incorrect!";
+            }
         }
     }
 }
