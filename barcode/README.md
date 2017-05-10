@@ -1,4 +1,4 @@
-#Barcode
+# Barcode
 
 Visual Studio 2017, C#
 
