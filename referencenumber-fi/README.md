@@ -1,9 +1,9 @@
-#Finnish reference number
+# Finnish reference number
 
 Visual Studio 2017, C#
 
-*Checks finnish rerence number.
+* Checks finnish rerence number.
 
-*Creates finnish reference number
+* Creates finnish reference number
 
-*Creates multiple reference numbers
+* Creates multiple reference numbers
