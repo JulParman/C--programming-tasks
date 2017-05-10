@@ -11,7 +11,7 @@ Visual Studio 2017, C#
 * account number
 * override ToString()
 
-### bank
+### Bank
 
 * name
 * accounts
